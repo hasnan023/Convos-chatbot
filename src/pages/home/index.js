@@ -16,7 +16,6 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import Chat from "@/components/chat/Chat";
 import Sidebar from "@/components/sidebar/Sidebar";
-import Typical from "react-typical";
 
 const MotionBox = motion(Box);
 
@@ -43,11 +42,7 @@ const HomeWithSidebar = () => {
 
                 <Center>
                   <Text color="black" fontWeight="bold" fontSize="lg">
-                    <Typical
-                      steps={["Welcome to the convos 🤖", 1000]}
-                      loop={1}
-                      wrapper="span"
-                    />
+                    Welcome to the Convos 🤖
                   </Text>
                 </Center>
                 <Center>

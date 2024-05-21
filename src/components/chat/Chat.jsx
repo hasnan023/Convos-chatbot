@@ -16,7 +16,7 @@ import {
   HarmCategory,
   HarmBlockThreshold,
 } from "@google/generative-ai";
-import Typical from "react-typical";
+
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
@@ -124,11 +124,7 @@ const Chat = () => {
           maxW={isSmallerScreen ? "100%" : "lg"}
         >
           <Heading mb={4} textAlign="center" fontSize="2xl" color="black">
-            <Typical
-              steps={["Chat with Convos🤖", 1000]}
-              loop={1}
-              wrapper="span"
-            />
+            Chat with Convos 🤖
           </Heading>
           <VStack
             spacing={4}
