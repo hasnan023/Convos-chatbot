@@ -10,8 +10,10 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import { CgMenuHotdog } from "react-icons/cg";
 import { FaHome } from "react-icons/fa";
 import { TbMessageChatbot } from "react-icons/tb";
+import { GiSplitCross } from "react-icons/gi";
 
 const Sidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -28,7 +30,7 @@ const Sidebar = () => {
       zIndex={1}
       transition="width 0.3s"
     >
-      <Text
+      {/* <Text
         color="black"
         fontWeight="bold"
         mt={4}
@@ -37,15 +39,20 @@ const Sidebar = () => {
         display={isOpen ? "block" : "none"}
       >
         Convos
-      </Text>
+      </Text> */}
       <IconButton
         aria-label="Toggle sidebar"
-        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+        icon={
+          isOpen ? (
+            <GiSplitCross color="black" />
+          ) : (
+            <CgMenuHotdog color="black" />
+          )
+        }
         onClick={isOpen ? onClose : onOpen}
         position="absolute"
         top="1rem"
         left="1rem"
-        display={isSidebarCollapsed ? "block" : "none"}
       />
       <Flex
         direction="column"

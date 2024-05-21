@@ -38,7 +38,7 @@ const HomeWithSidebar = () => {
                 transition="opacity 0.3s"
                 position="relative"
               >
-                <Image src="sapiens.png" alt="Home Image" boxSize="500px" />
+                <Image src="sapiens.png" alt="Home Image" boxSize="350px" />
 
                 <Center>
                   <Text color="black" fontWeight="bold" fontSize="lg">
