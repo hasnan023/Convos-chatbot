@@ -50,8 +50,8 @@ const HomeWithSidebar = () => {
                 opacity={showChat ? 0 : 1}
                 transition="opacity 0.3s"
                 position="relative"
-                width="450px" // Set a fixed width
-                height="450px" // Set a fixed height
+                width="340px" // Set a fixed width
+                height="340px" // Set a fixed height
               >
                 <Canvas>
                   <ambientLight />
