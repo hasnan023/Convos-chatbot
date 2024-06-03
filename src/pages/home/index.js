@@ -1,13 +1,9 @@
-import React, { useState } from "react";
 import {
   ChakraProvider,
   Box,
   Flex,
   IconButton,
-  Image,
   VStack,
-  useDisclosure,
-  Collapse,
   Center,
   Tooltip,
   Text,
@@ -16,8 +12,25 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 import Chat from "@/components/chat/Chat";
 import Sidebar from "@/components/sidebar/Sidebar";
+import React, { useState, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
 
 const MotionBox = motion(Box);
+
+const Model = ({ url, scale }) => {
+  const { scene, animations } = useGLTF(url);
+  const { actions } = useAnimations(animations, scene);
+
+  React.useEffect(() => {
+    if (actions) {
+      const action = actions[Object.keys(actions)[0]]; // Play the first animation
+      action.play();
+    }
+  }, [actions]);
+
+  return <primitive object={scene} scale={scale} />;
+};
 
 const HomeWithSidebar = () => {
   const [showChat, setShowChat] = useState(false);
@@ -37,10 +50,16 @@ const HomeWithSidebar = () => {
                 opacity={showChat ? 0 : 1}
                 transition="opacity 0.3s"
                 position="relative"
+                width="450px" // Set a fixed width
+                height="450px" // Set a fixed height
               >
-                <Image src="sapiens.png" alt="Home Image" boxSize="350px" />
-
-                <Center>
+                <Canvas>
+                  <ambientLight />
+                  <pointLight position={[10, 10, 10]} />
+                  <OrbitControls />
+                  <Model url="/HeadBot.glb" scale={[1, 1, 1]} />
+                </Canvas>
+                <Center mt={0}>
                   <Text color="black" fontWeight="bold" fontSize="lg">
                     Welcome to the Convos 🤖
                   </Text>
